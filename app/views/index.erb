@@ -1,0 +1,8 @@
+<h2>Here are all the jewels that are inside the box:</h2>
+<h3>Jewels:</h3>
+<ul>
+<% @jewels.each do |jewel| %>
+<li><a href='/jewels/<%= jewel.id %>'><%=jewel.mineral%></a></li>
+<% end %>
+</ul>
+<a href="/jewels/new">Click Here to Make a new Jewel!</a>
