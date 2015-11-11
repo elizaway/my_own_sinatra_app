@@ -2,7 +2,19 @@
 <h3>Jewels:</h3>
 <ul>
 <% @jewels.each do |jewel| %>
-<li><a href='/jewels/<%= jewel.id %>'><%=jewel.mineral%></a></li>
+<li>
+  <a href='/jewels/<%= jewel.id %>'>
+    <%=jewel.mineral%>
+  </a>
+    <div>
+      <a href='/jewels/<%= jewel.id %>/edit'>
+        edit
+      <a>
+      <a href='/jewels/<%= jewel.id %>'>
+        delete
+      <a>
+    </div>
+</li>
 <% end %>
 </ul>
 <a href="/jewels/new">Click Here to Make a new Jewel!</a>
