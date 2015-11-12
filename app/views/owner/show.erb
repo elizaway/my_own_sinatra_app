@@ -1,21 +1,21 @@
-<h2>Here are all the jewels that are inside the box:</h2>
-<h3>Jewels:</h3>
+<h2>Oh my! <%=@owner.name%> has so many beautiful jewels!<br>Here they are:</h2>
+
 <ul>
 <% @jewels.each do |jewel| %>
 <li>
   <a href='/jewels/<%= jewel.id %>'>
-    <%=jewel.mineral%>
+    <strong><%=jewel.mineral%></strong>
   </a>
-    <div>
+</li>
+    <div class="edit_delete">
       <a href='/jewels/<%= jewel.id %>/edit'>
-        edit
+        edit&nbsp;
       </a>
       <form action="/jewels/<%= jewel.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="delete">
       </form>
     </div>
-</li>
 <% end %>
 </ul>
-<a href="/jewels/new">Click Here to Make a new Jewel!</a>
+<a href="/jewels/new">Enter a Jewel!</a>

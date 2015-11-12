@@ -1,0 +1,18 @@
+<h2>Welcome to the Jewel-Provenance-ator</h2>
+<h3>In this database, you can catalogue precious jewels by who owns them</h3>
+<h3>Here are all the jewel-owners on the site:</h3>
+<ul>
+<% @owners.each do |owner| %>
+<li>
+  <a href='/owners/<%= owner.id %>'>
+    <strong><%=owner.name%></strong>
+  </a>
+</li>
+    <div class="edit_delete">
+      <a href='/owners/<%= owner.id %>/edit'>
+        edit&nbsp;
+      </a>
+    </div>
+<% end %>
+</ul>
+<a href="/owners/new">Make a new Jewel-Owner!</a>

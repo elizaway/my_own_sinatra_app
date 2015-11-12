@@ -1,15 +1,15 @@
-get '/' do
-  @jewels = Jewel.all
+get '/jewels' do
+  @owners = Owner.all
   erb :'index'
 end
 
 get '/jewels/new' do
-  erb :'new'
+  erb :'jewel/new'
 end
 
 get '/jewels/:id' do
   @jewel = Jewel.find(params[:id])
-  erb :'show'
+  erb :'jewel/show'
 end
 
 post '/jewels' do
@@ -19,7 +19,7 @@ end
 
 get '/jewels/:id/edit' do
   @jewel = Jewel.find(params[:id])
-  erb :'edit'
+  erb :'jewel/edit'
 end
 
 put '/jewels/:id' do
