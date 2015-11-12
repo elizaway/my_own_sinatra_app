@@ -34,3 +34,8 @@ put '/jewels/:id' do
   redirect("/jewels/#{@jewel.id}")
 end
 
+delete '/jewels/:id' do
+  @jewel = Jewel.find(params[:id])
+  @jewel.destroy
+  redirect("/")
+end
