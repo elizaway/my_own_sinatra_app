@@ -1,25 +1,30 @@
-get '/' do
-  @jewels = Jewel.all
+get '/jewels' do
+  @owners = Owner.all
   erb :'index'
 end
 
 get '/jewels/new' do
-  erb :'new'
+  erb :'jewel/new'
 end
 
 get '/jewels/:id' do
   @jewel = Jewel.find(params[:id])
-  erb :'show'
+  erb :'jewel/show'
 end
 
 post '/jewels' do
-  Jewel.new(mineral: params[:mineral], facets: params[:facets], location: params[:location]).save
-  redirect('/')
+  jewel = Jewel.new(params[:jewel])
+
+  if jewel.save
+    redirect('/')
+  else
+    raise Exeception.new('You blew it')
+  end
 end
 
 get '/jewels/:id/edit' do
   @jewel = Jewel.find(params[:id])
-  erb :'edit'
+  erb :'jewel/edit'
 end
 
 put '/jewels/:id' do
@@ -30,7 +35,7 @@ put '/jewels/:id' do
     facets: params[:facets],
     location: params[:location]
   }
-  @jewel.update_attributes(1)
+  @jewel.update_attributes(hsh)
   redirect("/jewels/#{@jewel.id}")
 end
 

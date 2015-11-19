@@ -1,0 +1,16 @@
+<h2>Use the form below to edit<br>info for <%=@owner.mineral%>!</h2>
+
+<form method="post" action="/jewels/<%=@jewel.id%>">
+  <Input type="hidden" name="_method" value="put">
+  <label for="mineral">MINERAL:</label>
+  <input id="mineral" name="mineral">
+  <br>
+  <label for="facets">FACETS:</label>
+  <input id="facets" name="facets">
+  <br>
+  <label for="location">LOCATION:</label>
+  <input id="location" name="location">
+  <br>
+  <input type="submit" value="Save Changes to this Jewel">
+</form>
+
