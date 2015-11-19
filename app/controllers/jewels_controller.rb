@@ -13,8 +13,13 @@ get '/jewels/:id' do
 end
 
 post '/jewels' do
-  Jewel.new(mineral: params[:mineral], facets: params[:facets], location: params[:location]).save
-  redirect('/')
+  jewel = Jewel.new(params[:jewel])
+
+  if jewel.save
+    redirect('/')
+  else
+    raise Exeception.new('You blew it')
+  end
 end
 
 get '/jewels/:id/edit' do
@@ -30,7 +35,7 @@ put '/jewels/:id' do
     facets: params[:facets],
     location: params[:location]
   }
-  @jewel.update_attributes(1)
+  @jewel.update_attributes(hsh)
   redirect("/jewels/#{@jewel.id}")
 end
 

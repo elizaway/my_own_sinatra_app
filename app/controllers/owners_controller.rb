@@ -24,3 +24,5 @@ get '/owners/:id' do
   erb :'owner/show'
 end
 
+# stay in this controller to add second params jewels
+# http://127.0.0.1:9393/owner/1/jewels/4
